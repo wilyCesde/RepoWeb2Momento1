@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  background: rgb(228, 220, 235);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(239, 145, 145, 0.5);
+}
+body{
+   background-image: url("./img/foto1.jpg");;
+}
+.header {
+  height: 50px;
+  line-height: 50px;
+  background-color: rgb(238, 224, 15);
+  border-bottom: 1px solid rgb(234, 18, 18);
+  padding: 0 20px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  color: rgb(111, 32, 230);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.form-horizontal {
+  display: flex;
+  flex-direction: column;
+}
+.botones {
+  display: flex;
+}
+button {
+  margin-right: 40px;
+}
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+ border-bottom: 1px solid #ccc;
+}
+#TAlumnos{
+  width: 100%;
+  height: 400px;
+}
+img{
+display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: rgb(226, 202, 202);
+  width: 100%;
+  height:40px;
+  
+}
+
+ 
+
+  

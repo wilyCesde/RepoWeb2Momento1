@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema De Notas</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./SistemaDeNotas.css" />
+  </head>
+
+  <body>
+    <div class="container col-xs-6">
+      <h1 class="header">Sistema de Notas</h1>
+      <form class="form-horizontal" name="formulario1" role="search">
+        <label for="Id">Identificacion</label>
+        <input
+          type="number"
+          class="form-control"
+          id="Id"
+          name="id"
+          placeholder="Ingrese su Ifentificacion"
+          autocomplete="off"
+        />
+        <span id="Mensajeid" style="color: hsl(29, 100%, 50%)"></span>
+        <br />
+        <label for="Nombre">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Nombre"
+          name="Nombre"
+          placeholder="Ingrese su nombre"
+          autocomplete="off"
+        />
+        <span id="MensajeNombre" style="color: hsl(29, 100%, 50%)"></span>
+        <br />
+        <label for="Asignatura">Asignatura</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Asignatura"
+          name="Asignatura"
+          placeholder="Ingrese su Asignatura"
+          autocomplete="off"
+        />
+        <span id="MensajeAsignatura" style="color: hsl(29, 100%, 50%)"></span>
+        <br />
+        <label for="nota1">nota1</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nota1"
+          name="nota1"
+          placeholder="Ingrese su nota1  (30%)"
+          autocomplete="off"
+        />
+        <span id="Mensajenota1" style="color: hsl(29, 100%, 50%)"></span>
+        <br />
+        <label for="nota2">nota2</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nota2"
+          name="nota2"
+          placeholder="Ingrese su nota2  (30%)"
+          autocomplete="off"
+        />
+
+        <span id="Mensajenota2" style="color: hsl(29, 100%, 50%)"></span>
+        <br />
+        <label for="nota3">nota3</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nota3"
+          name="nota3"
+          placeholder="Ingrese su nota3  (35%)"
+          autocomplete="off"
+        />
+        <span id="Mensajenota3" style="color: hsl(29, 100%, 50%)"></span>
+        <br />
+
+        <label for="Definitiva">Definitiva</label>
+        <input
+          type="number"
+          class="form-control"
+          id="Definitiva"
+          name="Definitiva"
+          readonly
+        />
+        <br />
+        <label for="Observaciones">Observaciones</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Observaciones"
+          name="Observaciones"
+          readonly
+          onclick="Calificaciones() "
+        />
+        <br />
+
+        <div class="botones">
+          <button type="button" class="btn btn-success" id="btnCalcular">
+            Calcular/Guardar
+          </button>
+
+          <br />
+          <button type="button" class="btn btn-success" id="btnLimpiar">
+            Limpiar
+          </button>
+          <br />
+          <button type="button" class="btn btn-success" id="btnBuscar">
+            Buscar
+          </button>
+          <br />
+          <button
+            type="button"
+            class="btn btn-success"
+            id="btnListar"
+            onclick="TodosAlumnos()"
+          >
+            Listar
+          </button>
+          <span id="MensajeListar" style="color: hsl(29, 100%, 50%)"></span>
+        </div>
+      </form>
+      <div id="TAlumnos">
+        
+      </div>
+      <div id="MostrarCollecion">
+        <label for="MostrarR"></label>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./SistemaDeNotas.js"></script>
+    <script src="./Alumnos.js"></script>
+  </body>
+</html>
