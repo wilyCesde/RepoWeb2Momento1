@@ -12,6 +12,7 @@ let btnCalcular = document.getElementById("btnCalcular");
 let btnLimpiar = document.getElementById("btnLimpiar");
 let btnBuscar = document.getElementById("btnBuscar");
 let btnListar = document.getElementById("btnListar");
+let MostrarR = document.getElementById("btnMostrarR");
 
 //crear funciones para oobligacion de campos
 Id.onfocus = () => {
@@ -75,9 +76,22 @@ btnCalcular.addEventListener("click", () => {
   }
 });
 
-//Crear la tabla para llamar los objetos de mi arreglo
+//programar botton de limpiar
+btnLimpiar.addEventListener("click", () => {
+  Id.value = "";
+  Nombre.value = "";
+  Asignatura.value = "";
+  nota1.value = "";
+  nota2.value = "";
+  nota3.value = "";
+  Definitiva.value = "";
+  Observaciones.value = "";
+  //Enviar el foco a valor 1
+  Id.focus();
+});
 
-btnBuscar.addEventListener("click", () => {
+//crear boton listar
+btnListar.addEventListener("click", () => {
   let newTable = document.createElement("table");
   newTable.setAttribute("border", "1");
   let newthId = document.createElement("th");
@@ -166,35 +180,36 @@ btnBuscar.addEventListener("click", () => {
   TAlumnos.appendChild(newTable);
 });
 
-//programar botton de limpiar
-btnLimpiar.addEventListener("click", () => {
-  Id.value = "";
-  Nombre.value = "";
-  Asignatura.value = "";
-  nota1.value = "";
-  nota2.value = "";
-  nota3.value = "";
-  Definitiva.value = "";
-  Observaciones.value = "";
-  //Enviar el foco a valor 1
-  Id.focus();
+btnBuscar.addEventListener("click", () => {
+  let menBus = document.createElement("p");
+  let NewMenBus = document.createTextNode("Buscando identificacion ...");
+  menBus.appendChild(NewMenBus);
+  MostrarCollecion.appendChild(menBus);
+
+  function getAlumno(alumnoId) {
+    let alumnoFind = GuardarAlumnos.find((buscar) => buscar.Id == alumnoId);
+    return alumnoFind != undefined ? alumnoFind : false;
+  }
+
+  let Buscaralumno = async () => {
+    let buscarId = Identificación.value;
+    let idAlumno = await getAlumno(buscarId);
+    if (!idAlumno) {
+      NewMenBus.textContent = "Identificacion no encontrada...";
+    } else {
+      Id.value = idAlumno.Id;
+      Asignatura.value = idAlumno.Asignatura;
+      Nombre.value = idAlumno.Nombre;
+      nota1.value = idAlumno.nota1;
+      nota2.value = idAlumno.nota2;
+      nota3.value = idAlumno.nota3;
+      Definitiva.value = idAlumno.Definitiva;
+      Observaciones.value = idAlumno.Observaciones;
+      NewMenBus.textContent = "Busqueda finalizada ...";
+    }
+  };
+
+  setTimeout(() => {
+    Buscaralumno();
+  }, );
 });
-
-// Dar la Funconalidad al btnGuardar
-
-//crear boton listar
-
-let TodosAlumnos = async () => {
-  let Alumnos = await getAlumnos();
-  Alumnos.map((alum) => {
-    document.write(
-      "<table border='1'><th>Identificación</th><th>Nombre</th><th>Asignatura</th><th>Definitiva</th>"
-    );
-    //pregunntar al profe sobre stilos
-    document.write(
-      `<div class="divT" display="flex"></div><tr><td>${alum.Id}</td><td>${alum.Nombre}</td><td>${alum.Asignatura}</td><td>${alum.Definitiva}</td></tr></div>`
-    );
-    document.write("</table>", " <br />");
-  }, 2000);
-console.write("cargando....")
-};

@@ -58,7 +58,7 @@ form label {
 }
 #TAlumnos{
   width: 100%;
-  height: 400px;
+  height:auto;
 }
 img{
 display: flex;
