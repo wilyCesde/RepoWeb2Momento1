@@ -13,7 +13,8 @@ let btnLimpiar = document.getElementById("btnLimpiar");
 let btnBuscar = document.getElementById("btnBuscar");
 let btnListar = document.getElementById("btnListar");
 let MostrarR = document.getElementById("btnMostrarR");
-
+ let TAlumnos= document.getElementById("TAlumnos");
+let MostrarCollecion= document.getElementById("MostrarCollecion");
 //crear funciones para oobligacion de campos
 Id.onfocus = () => {
   Mensajeid.textContent = " Su Identificacion es Obligatoria";
@@ -184,22 +185,23 @@ btnBuscar.addEventListener("click", () => {
   let menBus = document.createElement("p");
   let NewMenBus = document.createTextNode("Buscando identificacion ...");
   menBus.appendChild(NewMenBus);
-  MostrarCollecion.appendChild(menBus);
+    MostrarCollecion.appendChild(menBus);
 
-  function getAlumno(alumnoId) {
-    let alumnoFind = GuardarAlumnos.find((buscar) => buscar.Id == alumnoId);
-    return alumnoFind != undefined ? alumnoFind : false;
+  function getAlumno(Id) {
+    let alumnofind = GuardarAlumnos.find(
+      (buscar) => buscar.Identificación == Id
+    );
+    return alumnofind != undefined ? alumnofind : false;
   }
 
-  let Buscaralumno = async () => {
-    let buscarId = Identificación.value;
+  let searchAlumno = async () => {
+    let buscarId = Id.value;
     let idAlumno = await getAlumno(buscarId);
     if (!idAlumno) {
       NewMenBus.textContent = "Identificacion no encontrada...";
     } else {
-      Id.value = idAlumno.Id;
-      Asignatura.value = idAlumno.Asignatura;
       Nombre.value = idAlumno.Nombre;
+      Asignatura.value = idAlumno.Asignatura;
       nota1.value = idAlumno.nota1;
       nota2.value = idAlumno.nota2;
       nota3.value = idAlumno.nota3;
@@ -210,6 +212,6 @@ btnBuscar.addEventListener("click", () => {
   };
 
   setTimeout(() => {
-    Buscaralumno();
-  }, );
+    searchAlumno();
+  }, 2000);
 });
