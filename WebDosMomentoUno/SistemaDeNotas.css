@@ -78,3 +78,15 @@ display: flex;
  
 
   
+#caja {
+  display: none;
+  margin: 0px auto;
+  width: 400px;
+  padding: 5px;
+  text-align: left;
+  background-color: red;
+  color: white;
+}
+input[type=text]{
+  text-align: left;
+}
