@@ -65,10 +65,6 @@ btnCalcular.addEventListener("click", () => {
     alert("error numero no permitido");
   }
 
-if (formulario.value == null) {
-  alert("todos los campos son requeridos");
-}
-
 
   
    GuardarAlumnos.push({
@@ -162,7 +158,7 @@ btnListar.addEventListener("click", () => {
     let newTextDefinitiva = document.createTextNode(Galumnos.Definitiva);
     let newtdObservaciones = document.createElement("td");
     let newTextObservaciones = document.createTextNode(Galumnos.Observaciones);
-
+    let caja = document.getElementById("caja"); 
     //agregar a cada  elemento de los tds
 
     newtdId.appendChild(newTextId);
@@ -226,7 +222,26 @@ btnBuscar.addEventListener("click", () => {
 });
 
 
-
+window.onload = inicializar;
+function inicializar() {
+  document
+    .getElementById("btnCalcular")
+    .addEventListener("click", validarCampo, false);
+}
+function validarCampo() {
+  let caja = document.getElementById("caja");
+  caja.innerHTML = "";
+  let camposTexto = document.getElementsByClassName("form-control");
+  for (let i = 0; i < camposTexto.length; i++) {
+    if (camposTexto[i].value == "") {
+      caja.style.display = "block";
+      caja.innerHTML +=
+        "El campo " + camposTexto[i].id + " no puede estar vacío";
+    } else {
+      caja.style.display = "none";
+    }
+  }
+}
 
 
 
