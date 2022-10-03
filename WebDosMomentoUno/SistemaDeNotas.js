@@ -13,8 +13,8 @@ let btnLimpiar = document.getElementById("btnLimpiar");
 let btnBuscar = document.getElementById("btnBuscar");
 let btnListar = document.getElementById("btnListar");
 let MostrarR = document.getElementById("btnMostrarR");
- let TAlumnos= document.getElementById("TAlumnos");
-let MostrarCollecion= document.getElementById("MostrarCollecion");
+let TAlumnos = document.getElementById("TAlumnos");
+let MostrarCollecion = document.getElementById("MostrarCollecion");
 //crear funciones para oobligacion de campos
 Id.onfocus = () => {
   Mensajeid.textContent = " Su Identificacion es Obligatoria";
@@ -39,12 +39,16 @@ Asignatura.addEventListener("blur", function () {
 
 //Programar Funcion Acyncrona PAra el Boton de Guardar
 btnCalcular.addEventListener("click", () => {
+  const formulario = document.getElementById("formulario");
+  const inputs = document.querySelectorAll("#formulario input");
+  
   let nota_1, nota_2, nota_3, promedio;
   nota_1 = parseFloat(document.formulario1.nota1.value);
   nota_2 = parseFloat(document.formulario1.nota2.value);
   nota_3 = parseFloat(document.formulario1.nota3.value);
   promedio = (nota_1 + nota_2 + nota_3) / 3;
   document.formulario1.Definitiva.value = promedio;
+
 
   if (promedio <= 2) {
     document.formulario1.Observaciones.value = "Reprobado";
@@ -60,10 +64,14 @@ btnCalcular.addEventListener("click", () => {
   if (promedio >= 5.1) {
     alert("error numero no permitido");
   }
-  newFunction();
 
-  function newFunction() {
-    GuardarAlumnos.push({
+if (formulario.value == null) {
+  alert("todos los campos son requeridos");
+}
+
+
+  
+   GuardarAlumnos.push({
       Identificación: Id.value,
       Nombre: Nombre.value,
       Asignatura: Asignatura.value,
@@ -71,10 +79,11 @@ btnCalcular.addEventListener("click", () => {
       nota2: nota2.value,
       nota3: nota3.value,
       Definitiva: Definitiva.value,
-      Observaciones: Observaciones.value,
+     Observaciones: Observaciones.value,
+      
     });
     console.table(GuardarAlumnos);
-  }
+  
 });
 
 //programar botton de limpiar
@@ -185,7 +194,7 @@ btnBuscar.addEventListener("click", () => {
   let menBus = document.createElement("p");
   let NewMenBus = document.createTextNode("Buscando identificacion ...");
   menBus.appendChild(NewMenBus);
-    MostrarCollecion.appendChild(menBus);
+  MostrarCollecion.appendChild(menBus);
 
   function getAlumno(Id) {
     let alumnofind = GuardarAlumnos.find(
@@ -215,3 +224,15 @@ btnBuscar.addEventListener("click", () => {
     searchAlumno();
   }, 2000);
 });
+
+
+
+
+
+
+
+
+
+
+
+
