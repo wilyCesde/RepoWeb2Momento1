@@ -41,14 +41,13 @@ Asignatura.addEventListener("blur", function () {
 btnCalcular.addEventListener("click", () => {
   const formulario = document.getElementById("formulario");
   const inputs = document.querySelectorAll("#formulario input");
-  
+
   let nota_1, nota_2, nota_3, promedio;
   nota_1 = parseFloat(document.formulario1.nota1.value);
   nota_2 = parseFloat(document.formulario1.nota2.value);
   nota_3 = parseFloat(document.formulario1.nota3.value);
   promedio = (nota_1 + nota_2 + nota_3) / 3;
   document.formulario1.Definitiva.value = promedio;
-
 
   if (promedio <= 2) {
     document.formulario1.Observaciones.value = "Reprobado";
@@ -65,21 +64,17 @@ btnCalcular.addEventListener("click", () => {
     alert("error numero no permitido");
   }
 
-
-  
-   GuardarAlumnos.push({
-      Identificación: Id.value,
-      Nombre: Nombre.value,
-      Asignatura: Asignatura.value,
-      nota1: nota1.value,
-      nota2: nota2.value,
-      nota3: nota3.value,
-      Definitiva: Definitiva.value,
-     Observaciones: Observaciones.value,
-      
-    });
-    console.table(GuardarAlumnos);
-  
+  GuardarAlumnos.push({
+    Identificación: Id.value,
+    Nombre: Nombre.value,
+    Asignatura: Asignatura.value,
+    nota1: nota1.value,
+    nota2: nota2.value,
+    nota3: nota3.value,
+    Definitiva: Definitiva.value,
+    Observaciones: Observaciones.value,
+  });
+  console.table(GuardarAlumnos);
 });
 
 //programar botton de limpiar
@@ -158,7 +153,7 @@ btnListar.addEventListener("click", () => {
     let newTextDefinitiva = document.createTextNode(Galumnos.Definitiva);
     let newtdObservaciones = document.createElement("td");
     let newTextObservaciones = document.createTextNode(Galumnos.Observaciones);
-    let caja = document.getElementById("caja"); 
+
     //agregar a cada  elemento de los tds
 
     newtdId.appendChild(newTextId);
@@ -221,7 +216,6 @@ btnBuscar.addEventListener("click", () => {
   }, 2000);
 });
 
-
 window.onload = inicializar;
 function inicializar() {
   document
@@ -242,12 +236,3 @@ function validarCampo() {
     }
   }
 }
-
-
-
-
-
-
-
-
-
